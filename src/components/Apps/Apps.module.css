@@ -1,0 +1,464 @@
+.apps {
+  padding: 5rem 2rem;
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-secondary) 100%);
+  position: relative;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-bottom: 4rem;
+}
+
+.leftSection {
+  z-index: 1;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.gradient {
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.featureItem svg {
+  color: var(--primary-red);
+  flex-shrink: 0;
+}
+
+.platformsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.platformWrapper {
+  position: relative;
+}
+
+.platformCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.platformCard:hover,
+.platformCard.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-red);
+  transform: translateX(5px);
+}
+
+.platformIcon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(233, 30, 99, 0.1);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.platformIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.platformCard:hover .platformIcon img {
+  filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(233, 30, 99, 0.5));
+}
+
+.platformInfo {
+  flex: 1;
+}
+
+.platformName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.platformDesc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.downloadIcon,
+.dropdownIcon {
+  color: var(--primary-red);
+  transition: transform 0.3s ease;
+}
+
+.dropdownIcon.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  right: 0;
+  background: rgba(20, 20, 20, 0.98);
+  border: 1px solid rgba(233, 30, 99, 0.3);
+  border-radius: 15px;
+  padding: 1rem;
+  z-index: 10;
+  animation: slideDown 0.3s ease;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdownHeader {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.appItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.appItem:hover {
+  background: rgba(233, 30, 99, 0.1);
+  transform: translateX(5px);
+}
+
+.appInfo {
+  flex: 1;
+}
+
+.appName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.25rem;
+}
+
+.appDescription {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.appMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.appSize {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 5px;
+}
+
+.downloadSmallIcon {
+  color: var(--primary-red);
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.appItem:hover .downloadSmallIcon {
+  opacity: 1;
+}
+
+.protocolsInfo {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.protocolsTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, var(--primary-red) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.protocolsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.protocol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.protocolBadge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(233, 30, 99, 0.1);
+  border: 1px solid rgba(233, 30, 99, 0.3);
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--primary-red);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.protocolDesc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.rightSection {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  position: sticky;
+  top: 100px;
+  margin-top: 4%;
+  margin-left: 25%;
+}
+
+.mockupContainer {
+  position: relative;
+  width: 380px;
+  height: 600px;
+}
+
+.phoneFrame {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+  border-radius: 40px;
+  padding: 10px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.phoneScreen {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #141414 100%);
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.appInterface {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.appHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.appLogo {
+  width: 30px;
+  height: 30px;
+}
+
+.appStatus {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.connectionButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 0;
+}
+
+.powerIcon {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+  box-shadow: 0 20px 40px rgba(233, 30, 99, 0.4);
+  animation: pulse 2s infinite;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.powerIcon:hover {
+  transform: scale(1.1);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 20px 40px rgba(233, 30, 99, 0.4);
+  }
+  50% {
+    box-shadow: 0 25px 50px rgba(233, 30, 99, 0.6);
+  }
+}
+
+.serverInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.serverLocation {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.connectionTime {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-red);
+}
+
+.statsRow {
+  display: flex;
+  justify-content: space-around;
+  margin-top: auto;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.statValue {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .rightSection {
+    margin-left: 0%;
+    position: relative;
+    top: auto;
+    display: none;
+  }
+  
+  .mockupContainer {
+    width: 250px;
+    height: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .platformsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .protocolsList {
+    grid-template-columns: 1fr;
+  }
+  
+  .dropdown {
+    position: relative;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin-bottom: 1rem;
+  }
+}

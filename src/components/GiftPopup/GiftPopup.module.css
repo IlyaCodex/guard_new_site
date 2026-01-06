@@ -1,0 +1,303 @@
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9997;
+  isolation: isolate;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9998;
+  cursor: pointer;
+}
+
+.popupWrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.popup {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  max-height: calc(90vh - 40px);
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(30, 30, 30, 0.98) 100%);
+  border: 2px solid rgba(233, 30, 99, 0.3);
+  border-radius: 30px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 30px 60px rgba(233, 30, 99, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  pointer-events: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: auto;
+  overscroll-behavior: contain;
+  cursor: default;
+}
+
+.popup {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.popup::-webkit-scrollbar {
+  display: none;
+}
+
+.popup::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(233, 30, 99, 0.1) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  pointer-events: all;
+}
+
+.closeButton:hover {
+  background: rgba(233, 30, 99, 0.3);
+  border-color: rgba(233, 30, 99, 0.5);
+  transform: scale(1.1);
+}
+
+.closeButton:active {
+  transform: scale(0.95);
+  background: rgba(233, 30, 99, 0.5);
+}
+
+.giftIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #e91e63 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+}
+
+.offer {
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.offerBadge {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(233, 30, 99, 0.4);
+  animation: pulse 2s infinite;
+  user-select: none;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.offerDays {
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1;
+}
+
+.offerText {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  opacity: 0.9;
+}
+
+.description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.description strong {
+  color: var(--primary-red);
+  font-weight: 700;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  user-select: none;
+}
+
+.feature svg {
+  color: #4caf50;
+  flex-shrink: 0;
+}
+
+.feature span {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.claimButton {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #e91e63 0%, #f06292 100%);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 15px 35px rgba(233, 30, 99, 0.4);
+  margin-bottom: 0.75rem;
+  pointer-events: all;
+}
+
+.claimButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(233, 30, 99, 0.6);
+}
+
+.claimButton:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.4);
+}
+
+.claimButton svg {
+  fill: white;
+}
+
+.disclaimer {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+}
+
+@media (max-width: 640px) {
+  .popup {
+    max-height: calc(85vh - 40px);
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .offerDays {
+    font-size: 1.5rem;
+  }
+
+  .giftIcon {
+    font-size: 3rem;
+  }
+}
+
+@media (max-height: 700px) {
+  .popup {
+    max-height: calc(80vh - 40px);
+    padding: 1.5rem;
+  }
+
+  .giftIcon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .features {
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature {
+    padding: 0.5rem;
+  }
+}
