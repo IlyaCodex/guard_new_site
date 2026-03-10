@@ -1,0 +1,116 @@
+.uploader {
+  width: 100%;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.dropzone {
+  width: 100%;
+  padding: 2rem;
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.dropzone:hover {
+  border-color: rgba(236, 72, 153, 0.3);
+  background: rgba(236, 72, 153, 0.03);
+}
+
+.dropzoneActive {
+  border-color: #ec4899 !important;
+  background: rgba(236, 72, 153, 0.08) !important;
+}
+
+.dropzoneUploading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.dropContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropIcon {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.dropzone:hover .dropIcon {
+  color: #ec4899;
+}
+
+.dropLabel {
+  color: #ccc;
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.dropHint {
+  color: #666;
+  font-size: 0.8125rem;
+}
+
+.dropFormat {
+  color: #444;
+  font-size: 0.75rem;
+}
+
+/* Загрузка */
+.uploading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ec4899;
+  font-size: 0.875rem;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(236, 72, 153, 0.2);
+  border-top-color: #ec4899;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.progressBar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #ec4899;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+/* Ошибка */
+.error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.625rem 1rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 0.5rem;
+  color: #ef4444;
+  font-size: 0.8125rem;
+}

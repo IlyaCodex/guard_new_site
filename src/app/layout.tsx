@@ -121,8 +121,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#e91e63" />
       </head>
       <body>
-        <SnowProvider>
-          <SnowWrapper>
+         <SnowProvider> 
+          <SnowWrapper> 
             {children}
             <Header />
             <Footer />

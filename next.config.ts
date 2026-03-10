@@ -1,20 +1,31 @@
 import type { NextConfig } from "next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'standalone',
+const nextConfig: NextConfig = {
+  output: "standalone",
   images: {
     unoptimized: true,
-    domains: ['gt-vpn.ru'],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "gt-vpn.ru",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.gt-vpn.ru",
+      },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "9000",
+      },
+    ],
   },
   eslint: {
-    ignoreDuringBuilds: true, // Временно, если есть предупреждения ESLint
+    ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: false, // Поставьте true, если есть ошибки TS и нужно срочно собрать
+    ignoreBuildErrors: false,
   },
-}
-
-module.exports = nextConfig
+};
 
 export default nextConfig;

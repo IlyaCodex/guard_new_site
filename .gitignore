@@ -45,3 +45,9 @@ deploy.tar.gz
 *.tar.gz
 *.zip
 deploy/
+
+
+.env.local
+/src/generated/prisma
+.env
+.env.production

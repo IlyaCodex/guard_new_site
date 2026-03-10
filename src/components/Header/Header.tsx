@@ -112,6 +112,7 @@ const Header: React.FC = () => {
       label: "Инструкции подключения",
       hasDropdown: true,
     },
+    { href: "/news", label: "Новости" },
   ];
 
   const instructionSubmenu = [

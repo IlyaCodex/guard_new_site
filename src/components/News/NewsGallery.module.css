@@ -1,0 +1,178 @@
+/* Одно изображение */
+.single {
+  margin: 1.5rem 0;
+}
+
+.singleImage {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.singleImage:hover {
+  opacity: 0.9;
+}
+
+/* Галерея-слайдер */
+.gallery {
+  margin: 1.5rem 0;
+}
+
+.swiper {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.slide {
+  cursor: pointer;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.galleryCounter {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.8125rem;
+  margin-top: 0.75rem;
+}
+
+/* Swiper кастомизация */
+.gallery :global(.swiper-button-next),
+.gallery :global(.swiper-button-prev) {
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+}
+
+.gallery :global(.swiper-button-next)::after,
+.gallery :global(.swiper-button-prev)::after {
+  font-size: 0.875rem;
+}
+
+.gallery :global(.swiper-pagination-bullet) {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.gallery :global(.swiper-pagination-bullet-active) {
+  background: #ec4899;
+}
+
+/* === Lightbox === */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.97);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.lbClose {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.lbClose:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.lbArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.2s;
+}
+
+.lbArrow:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.lbArrow:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.lbPrev {
+  left: 1.25rem;
+}
+
+.lbNext {
+  right: 1.25rem;
+}
+
+.lbContent {
+  max-width: 90vw;
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lbContent img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.lbCounter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.875rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.375rem 1rem;
+  border-radius: 2rem;
+}
+
+@media (max-width: 768px) {
+  .lbArrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lbPrev {
+    left: 0.5rem;
+  }
+
+  .lbNext {
+    right: 0.5rem;
+  }
+}
