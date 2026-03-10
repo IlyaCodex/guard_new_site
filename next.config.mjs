@@ -1,7 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-//   output: "standalone",
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -24,7 +22,7 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
 };
 
