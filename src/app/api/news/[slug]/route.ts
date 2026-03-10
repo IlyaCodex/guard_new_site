@@ -1,25 +1,17 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export async function GET(
-  request: Request,
-  { params }: { params: { slug: string } },
+  request: NextRequest,
+  { params }: { params: Promise<{ slug: string }> },
 ) {
+  const { slug } = await params;
+
   try {
-    const news = await prisma.news.findFirst({
-      where: {
-        slug: params.slug,
-        published: true,
-      },
-      include: {
-        blocks: {
-          orderBy: {
-            order: "asc",
-          },
-        },
-      },
+    const news = await prisma.news.findUnique({
+      where: { slug, published: true },
     });
 
     if (!news) {
@@ -32,19 +24,11 @@ export async function GET(
       data: { views: { increment: 1 } },
     });
 
-    // Преобразуем даты в строки для JSON
-    const newsData = {
-      ...news,
-      publishedAt: news.publishedAt?.toISOString() || null,
-      createdAt: news.createdAt.toISOString(),
-      updatedAt: news.updatedAt.toISOString(),
-    };
-
-    return NextResponse.json(newsData);
+    return NextResponse.json(news);
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error fetching news:", error);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: "Failed to fetch news" },
       { status: 500 },
     );
   }

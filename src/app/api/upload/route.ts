@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
       }
 
       const buffer = Buffer.from(await file.arrayBuffer());
-      const url = await uploadFile(buffer, file.name, file.type, folder);
+      const url = await uploadFile(buffer, file.name, file.type);
       urls.push(url);
     }
 

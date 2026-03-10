@@ -6,8 +6,10 @@ const prisma = new PrismaClient();
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } },
+  { params }: { params: Promise<{ id: string }> },
 ) {
+  const { id } = await params;
+
   const token = request.cookies.get("admin_token")?.value;
   if (!token)
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -17,15 +19,15 @@ export async function DELETE(
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   // Нельзя удалить себя
-  if (auth.userId === params.id) {
+  if (auth.userId === id) {
     return NextResponse.json(
       { error: "Нельзя удалить свой аккаунт" },
       { status: 400 },
     );
   }
 
-  await prisma.session.deleteMany({ where: { userId: params.id } });
-  await prisma.user.delete({ where: { id: params.id } });
+  await prisma.session.deleteMany({ where: { userId: id } });
+  await prisma.user.delete({ where: { id } });
 
   return NextResponse.json({ success: true });
 }
