@@ -159,7 +159,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               ? new Date(news.updatedAt).toISOString()
               : now,
             changeFrequency: "weekly" as const,
-            priority: 0.7,
+            priority: 0.70,
           }),
         );
       }
