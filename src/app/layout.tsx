@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Guard Tunnel VPN",
   },
   description:
-    "Быстрый и безопасный VPN сервис на протоколе xRay. Обход белых списков, высокая скорость.Подключись уже сегодня!",
+    "Быстрый и безопасный VPN сервис на протоколе xRay. Обход белых списков, высокая скорость. Подключись уже сегодня!",
   keywords: [
     "VPN",
     "ВПН",
@@ -37,6 +37,10 @@ export const metadata: Metadata = {
     email: false,
     address: false,
     telephone: false,
+  },
+  verification: {
+    google: "i-lfSySTNRzhu0KbTpDafqKdtrtdomOCuDVOcLmNO9Q",
+    yandex: "7f9e9ee5b0707e31",
   },
   openGraph: {
     title: "Guard Tunnel VPN - Быстрый, безопасный VPN сервис",
@@ -105,7 +109,6 @@ export const metadata: Metadata = {
   category: "technology",
   classification: "VPN Service",
   referrer: "origin-when-cross-origin",
-  colorScheme: "dark",
 };
 
 export default function RootLayout({
@@ -121,13 +124,13 @@ export default function RootLayout({
         <meta name="theme-color" content="#e91e63" />
       </head>
       <body>
-         {/* <SnowProvider> 
-          <SnowWrapper>  */}
-            {children}
-            <Header />
-            <Footer />
-          {/* </SnowWrapper>
-        </SnowProvider> */}
+        {/* <SnowProvider> */}
+        {/* <SnowWrapper> */}
+        {children}
+        <Header />
+        <Footer />
+        {/* </SnowWrapper> */}
+        {/* </SnowProvider> */}
       </body>
     </html>
   );
