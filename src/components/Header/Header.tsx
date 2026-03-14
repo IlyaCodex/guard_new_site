@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSnow } from "@/contexts/SnowContext";
+// import { useSnow } from "@/contexts/SnowContext";
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
-  const { snowEnabled, toggleSnow } = useSnow();
+  // const { snowEnabled, toggleSnow } = useSnow();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -270,7 +270,7 @@ const Header: React.FC = () => {
             Начать сейчас
           </button>
 
-          <button
+          {/* <button
             onClick={toggleSnow}
             className={styles.snowButton}
             aria-label="Toggle snow effect"
@@ -280,7 +280,7 @@ const Header: React.FC = () => {
             <span className={styles.snowStatus}>
               {snowEnabled ? "ON" : "OFF"}
             </span>
-          </button>
+          </button> */}
 
           {/* Бургер меню для мобильных */}
           <button
