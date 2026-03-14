@@ -2,8 +2,8 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import type { Metadata } from "next";
 import "./globals.css";
-import SnowWrapper from "@/components/SnowWrapper/SnowWrapper";
-import { SnowProvider } from "@/contexts/SnowContext";
+// import SnowWrapper from "@/components/SnowWrapper/SnowWrapper";
+// import { SnowProvider } from "@/contexts/SnowContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gt-vpn.ru"),
@@ -121,13 +121,13 @@ export default function RootLayout({
         <meta name="theme-color" content="#e91e63" />
       </head>
       <body>
-         <SnowProvider> 
-          <SnowWrapper> 
+         {/* <SnowProvider> 
+          <SnowWrapper>  */}
             {children}
             <Header />
             <Footer />
-          </SnowWrapper>
-        </SnowProvider>
+          {/* </SnowWrapper>
+        </SnowProvider> */}
       </body>
     </html>
   );
