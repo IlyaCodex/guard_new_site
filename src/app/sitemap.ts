@@ -142,10 +142,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  // Новости — пробуем получить, если не получится — пропускаем
   let newsPages: MetadataRoute.Sitemap = [];
   try {
-    const res = await fetch(`${baseUrl}/api/news?limit=150`, {
+    const res = await fetch(`${baseUrl}/api/news?limit=100`, {
       cache: "no-store",
     });
     if (res.ok) {
@@ -159,7 +158,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               ? new Date(news.updatedAt).toISOString()
               : now,
             changeFrequency: "weekly" as const,
-            priority: 0.70,
+            priority: 0.7,
           }),
         );
       }
