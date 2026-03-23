@@ -48,8 +48,9 @@ const features: Feature[] = [
     ),
     title: "Молниеносная скорость",
     description:
-      "10 Гбит/с серверы обеспечивают максимальную скорость без ограничений трафика",
+      "10 Гбит/с серверы обеспечивают максимальную скорость",
   },
+  // без ограничений трафика
   {
     id: 3,
     icon: (
@@ -69,8 +70,9 @@ const features: Feature[] = [
     ),
     title: "10+ серверов",
     description:
-      "Серверы в 10+ странах мира для доступа к любому контенту без ограничений",
+      "Серверы в 10+ странах мира для доступа к любому контенту",
   },
+  //  без ограничений
   {
     id: 4,
     icon: (
@@ -90,28 +92,28 @@ const features: Feature[] = [
     description:
       "Никаких логов, полная приватность и защита вашей личности в интернете",
   },
-  {
-    id: 5,
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-        <rect
-          x="5"
-          y="10"
-          width="30"
-          height="20"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
-        <path d="M10 15H30" stroke="currentColor" strokeWidth="2" />
-        <circle cx="15" cy="22" r="2" fill="currentColor" />
-        <circle cx="25" cy="22" r="2" fill="currentColor" />
-      </svg>
-    ),
-    title: "Обход белых списков",
-    description:
-      "Наши технологии позволяют обходить даже самую сильную цензуру (это когда провайдеры дают пользоваться сайтами и сервисами только из своего белого списка)",
-  },
+  // {
+  //   id: 5,
+  //   icon: (
+  //     <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+  //       <rect
+  //         x="5"
+  //         y="10"
+  //         width="30"
+  //         height="20"
+  //         rx="2"
+  //         stroke="currentColor"
+  //         strokeWidth="2"
+  //       />
+  //       <path d="M10 15H30" stroke="currentColor" strokeWidth="2" />
+  //       <circle cx="15" cy="22" r="2" fill="currentColor" />
+  //       <circle cx="25" cy="22" r="2" fill="currentColor" />
+  //     </svg>
+  //   ),
+  //   title: "Обход белых списков",
+  //   description:
+  //     "Наши технологии позволяют обходить даже самую сильную цензуру (это когда провайдеры дают пользоваться сайтами и сервисами только из своего белого списка)",
+  // },
 ];
 
 const Features: React.FC = () => {
