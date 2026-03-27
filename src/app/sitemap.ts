@@ -3,6 +3,9 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://gt-vpn.ru";
   const now = new Date().toISOString();
@@ -58,6 +61,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       orderBy: { publishedAt: "desc" },
       take: 100,
     });
+
+    console.log(`Sitemap: found ${newsList.length} news articles`);
 
     newsPages = newsList.map((news) => ({
       url: `${baseUrl}/news/${news.slug}`,
