@@ -8,10 +8,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://gt-vpn.ru"),
   title: {
-    default: "Быстрый VPN сервис | Guard Tunnel VPN",
+    default: "Быстрый VPN сервис | Обход белых списков | Guard Tunnel VPN",
     template: "%s | Guard Tunnel VPN",
   },
-  // Обход белых списков |
   description:
     "Быстрый и безопасный VPN сервис на протоколе xRay. Обход белых списков, высокая скорость. Подключись уже сегодня!",
   keywords: [

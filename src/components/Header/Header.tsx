@@ -122,12 +122,12 @@ const Header: React.FC = () => {
       icon: "🔐",
       description: "Базовая настройка VPN",
     },
-    // {
-    //   href: "/instruction-whitelist",
-    //   label: "Обход белых списков",
-    //   icon: "🚀",
-    //   description: "Для российских пользователей",
-    // },
+    {
+      href: "/instruction-whitelist",
+      label: "Обход белых списков",
+      icon: "🚀",
+      description: "Для российских пользователей",
+    },
   ];
 
   const instructionPlatforms = [
