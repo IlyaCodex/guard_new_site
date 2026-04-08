@@ -5,6 +5,11 @@ services:
     restart: unless-stopped
     ports:
       - "127.0.0.1:3000:3000"
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '1.0'
     environment:
       NODE_ENV: production
       DATABASE_URL: postgresql://admin:GuardTunnel_DB_2026!@db:5432/guardtunnel?schema=public
