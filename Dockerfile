@@ -16,6 +16,9 @@ FROM node:20-alpine
 
 RUN apk add --no-cache openssl
 
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S nextjs -u 1001
+
 WORKDIR /app
 ENV NODE_ENV=production
 
@@ -31,6 +34,10 @@ COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 
 RUN npx prisma generate
+
+RUN chown -R nextjs:nodejs /app
+
+USER nextjs
 
 EXPOSE 3000
 CMD ["npm", "start"]
